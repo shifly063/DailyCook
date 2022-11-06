@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
-import 'home.dart';
 
 class RegistForm extends StatelessWidget {
   const RegistForm({super.key});
@@ -11,15 +10,7 @@ class RegistForm extends StatelessWidget {
         appBar: AppBar(
             title: Text("DailyCook"),
             titleTextStyle: TextStyle(fontFamily: "caviarbold"),
-            actions: <Widget>[
-              IconButton(
-                icon: new Icon(Icons.account_circle_rounded),
-                onPressed: () {
-                  null;
-                },
-                iconSize: 40,
-              )
-            ]),
+            actions: <Widget>[]),
         body: ListView(
           children: [
             Container(
@@ -94,9 +85,9 @@ class RegistForm extends StatelessWidget {
                       splashColor: Colors.brown[600],
                       hoverElevation: 20,
                       onPressed: () {
-                        // RegistForm();
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => LoginForm()));
+                        null;
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (context) => LoginForm()));
                       },
                       child: Title(
                           color: Colors.deepOrange, child: Text("Regist")),

@@ -1,6 +1,5 @@
 import 'package:dailycook/regist.dart';
 import 'package:flutter/material.dart';
-import 'package:dailycook/regist.dart';
 import 'package:dailycook/home.dart';
 
 class LoginForm extends StatelessWidget {

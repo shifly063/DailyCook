@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Daily Cook',
         theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
-        ),
+            primarySwatch: Colors.deepOrange,
+            backgroundColor: Colors.amber[100]),
         home: LoginForm());
   }
 }

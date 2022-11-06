@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'regist.dart';
+import 'detail.dart';
+import 'list.dart';
+import 'addReceipt.dart';
+import 'profile.dart';
 
 class Homelist extends StatelessWidget {
   const Homelist({super.key});
@@ -12,9 +16,18 @@ class Homelist extends StatelessWidget {
             titleTextStyle: TextStyle(fontFamily: "caviarbold"),
             actions: <Widget>[
               IconButton(
+                icon: new Icon(Icons.playlist_add_rounded),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => AddReceipt()));
+                },
+                iconSize: 40,
+              ),
+              IconButton(
                 icon: new Icon(Icons.account_circle_rounded),
                 onPressed: () {
-                  null;
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => ProfileAcc()));
                 },
                 iconSize: 40,
               )
@@ -24,6 +37,7 @@ class Homelist extends StatelessWidget {
             Container(
                 alignment: Alignment.center,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Image.asset("image/beranda.png"),
                     Container(
@@ -40,6 +54,217 @@ class Homelist extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                     ),
+                    Padding(padding: EdgeInsets.only(top: 10)),
+                    Container(
+                      padding: EdgeInsets.only(left: 30),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 300,
+                            height: 50,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                labelText: 'Search',
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30)),
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => Listdata()));
+                            },
+                            icon: Icon(
+                              Icons.search,
+                              size: 30,
+                              color: Colors.brown[700],
+                              shadows: [
+                                BoxShadow(
+                                  blurRadius: 10.0,
+                                  color: Colors.brown,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.only(top: 20)),
+                    Container(
+                      height: 240,
+                      width: 350,
+                      color: Colors.deepOrange[400],
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Container(
+                              alignment: Alignment.center,
+                              height: 210,
+                              width: 100,
+                              color: Colors.amber[100],
+                              child: Column(
+                                children: <Widget>[
+                                  Padding(padding: EdgeInsets.only(top: 10)),
+                                  Image.asset(
+                                    "image/makanan.jpg",
+                                    width: 90,
+                                  ),
+                                  Padding(padding: EdgeInsets.only(top: 5)),
+                                  Text(
+                                    "MAKANAN A",
+                                    style: TextStyle(
+                                        fontFamily: "student",
+                                        color: Colors.brown[600]),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(10),
+                                    height: 80,
+                                    width: 90,
+                                    color: Colors.brown[600],
+                                    child: Text(
+                                      "BELUM ADA RESEP",
+                                      style: TextStyle(
+                                          fontFamily: "student",
+                                          fontSize: 10,
+                                          color: Colors.amber[100]),
+                                    ),
+                                  ),
+                                  Padding(padding: EdgeInsets.only(top: 5)),
+                                  Container(
+                                    height: 25,
+                                    width: 90,
+                                    color: Colors.brown,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetilRec()));
+                                      },
+                                      child: Text(
+                                        "More",
+                                        style: TextStyle(
+                                            fontSize: 10, color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 210,
+                              width: 100,
+                              color: Colors.amber[100],
+                              child: Column(
+                                children: <Widget>[
+                                  Padding(padding: EdgeInsets.only(top: 10)),
+                                  Image.asset(
+                                    "image/makanan.jpg",
+                                    width: 90,
+                                  ),
+                                  Padding(padding: EdgeInsets.only(top: 5)),
+                                  Text(
+                                    "MAKANAN A",
+                                    style: TextStyle(
+                                        fontFamily: "student",
+                                        color: Colors.brown[600]),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(10),
+                                    height: 80,
+                                    width: 90,
+                                    color: Colors.brown[600],
+                                    child: Text(
+                                      "BELUM ADA RESEP",
+                                      style: TextStyle(
+                                          fontFamily: "student",
+                                          fontSize: 10,
+                                          color: Colors.amber[100]),
+                                    ),
+                                  ),
+                                  Padding(padding: EdgeInsets.only(top: 5)),
+                                  Container(
+                                    height: 25,
+                                    width: 90,
+                                    color: Colors.brown,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetilRec()));
+                                      },
+                                      child: Text(
+                                        "More",
+                                        style: TextStyle(
+                                            fontSize: 10, color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 210,
+                              width: 100,
+                              color: Colors.amber[100],
+                              child: Column(
+                                children: <Widget>[
+                                  Padding(padding: EdgeInsets.only(top: 10)),
+                                  Image.asset(
+                                    "image/makanan.jpg",
+                                    width: 90,
+                                  ),
+                                  Padding(padding: EdgeInsets.only(top: 5)),
+                                  Text(
+                                    "MAKANAN A",
+                                    style: TextStyle(
+                                        fontFamily: "student",
+                                        color: Colors.brown[600]),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(10),
+                                    height: 80,
+                                    width: 90,
+                                    color: Colors.brown[600],
+                                    child: Text(
+                                      "BELUM ADA RESEP",
+                                      style: TextStyle(
+                                          fontFamily: "student",
+                                          fontSize: 10,
+                                          color: Colors.amber[100]),
+                                    ),
+                                  ),
+                                  Padding(padding: EdgeInsets.only(top: 5)),
+                                  Container(
+                                    height: 25,
+                                    width: 90,
+                                    color: Colors.brown,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetilRec()));
+                                      },
+                                      child: Text(
+                                        "More",
+                                        style: TextStyle(
+                                            fontSize: 10, color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ]),
+                    )
                   ],
                 )),
           ],
