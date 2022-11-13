@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'regist.dart';
 import 'detail.dart';
 import 'list.dart';
-import 'addReceipt.dart';
+import 'addRecipe.dart';
 import 'profile.dart';
+import 'package:sidebarx/sidebarx.dart';
 
 class Homelist extends StatelessWidget {
   const Homelist({super.key});
@@ -11,6 +11,55 @@ class Homelist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // drawer: Drawer(
+        //   child: Column(
+        //     children: [
+        //       Expanded(
+        //         flex: 1,
+        //         child: Container(
+        //           width: MediaQuery.of(context).size.width * 0.85,
+        //           child: DrawerHeader(
+        //             decoration: BoxDecoration(
+        //                 image: DecorationImage(
+        //                     image: AssetImage("image/makanan.jpg"),
+        //                     fit: BoxFit.cover)),
+        //             child: Text(
+        //               "Dailycook",
+        //               style: TextStyle(
+        //                 fontFamily: "shakies",
+        //                 fontSize: 30,
+        //                 color: Colors.brown,
+        //               ),
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        //       Expanded(
+        //         flex: 2,
+        //         child: ListView(children: [
+        //           ListTile(
+        //             title: Text("Profile"),
+        //             onTap: () {
+        //               Navigator.of(context).pop();
+        //             },
+        //           ),
+        //           ListTile(
+        //             title: Text("...."),
+        //             onTap: () {
+        //               Navigator.of(context).pop();
+        //             },
+        //           ),
+        //           ListTile(
+        //             title: Text(",,,"),
+        //             onTap: () {
+        //               Navigator.of(context).pop();
+        //             },
+        //           )
+        //         ]),
+        //       )
+        //     ],
+        //   ),
+        // ),
         appBar: AppBar(
             title: Text("DailyCook"),
             titleTextStyle: TextStyle(fontFamily: "caviarbold"),
@@ -19,7 +68,7 @@ class Homelist extends StatelessWidget {
                 icon: new Icon(Icons.playlist_add_rounded),
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddReceipt()));
+                      MaterialPageRoute(builder: (context) => AddRecipe()));
                 },
                 iconSize: 40,
               ),

@@ -100,7 +100,7 @@ class LoginForm extends StatelessWidget {
                         size: 30,
                       ),
                       onPressed: null,
-                    )
+                    ),
                   ],
                 )),
           ],

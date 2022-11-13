@@ -1,8 +1,8 @@
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
 
-class AddReceipt extends StatelessWidget {
-  const AddReceipt({super.key});
+class AddRecipe extends StatelessWidget {
+  const AddRecipe({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class AddReceipt extends StatelessWidget {
                     children: [
                       Padding(padding: EdgeInsets.only(top: 30)),
                       Text(
-                        "Add Your Receipt",
+                        "Add Your Recipe",
                         style: TextStyle(
                             fontFamily: "caviarbold",
                             fontSize: 30,
@@ -56,7 +56,7 @@ class AddReceipt extends StatelessWidget {
                         height: 50,
                         child: TextField(
                           decoration: InputDecoration(
-                              labelText: 'Receipt',
+                              labelText: 'Recipe',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               )),

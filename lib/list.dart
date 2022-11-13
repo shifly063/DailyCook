@@ -1,8 +1,7 @@
 import 'package:dailycook/profile.dart';
-import 'package:dailycook/regist.dart';
 import 'package:flutter/material.dart';
 import 'package:dailycook/home.dart';
-import 'addReceipt.dart';
+import 'addRecipe.dart';
 
 class Listdata extends StatelessWidget {
   const Listdata({super.key});
@@ -18,7 +17,7 @@ class Listdata extends StatelessWidget {
                 icon: new Icon(Icons.playlist_add_rounded),
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddReceipt()));
+                      MaterialPageRoute(builder: (context) => AddRecipe()));
                 },
                 iconSize: 40,
               ),

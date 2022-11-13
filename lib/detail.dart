@@ -1,8 +1,6 @@
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
-import 'regist.dart';
-import 'list.dart';
-import 'addReceipt.dart';
+import 'addRecipe.dart';
 
 class DetilRec extends StatelessWidget {
   const DetilRec({super.key});
@@ -18,7 +16,7 @@ class DetilRec extends StatelessWidget {
                 icon: new Icon(Icons.playlist_add_rounded),
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddReceipt()));
+                      MaterialPageRoute(builder: (context) => AddRecipe()));
                 },
                 iconSize: 40,
               ),
@@ -34,7 +32,7 @@ class DetilRec extends StatelessWidget {
         body: ListView(
           children: [
             Container(
-              color: Colors.amber[100],
+              color: Colors.amber[50],
               child: Column(
                 children: [
                   Padding(padding: EdgeInsets.only(top: 20)),
@@ -62,17 +60,18 @@ class DetilRec extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Tittle",
+                          "Mie ayam",
                           style: TextStyle(
                               fontSize: 20,
                               fontFamily: "student",
                               color: Colors.amber[100]),
                         ),
                         Container(
-                          height: 80,
+                          padding: EdgeInsets.all(20),
+                          height: 140,
                           alignment: Alignment.bottomCenter,
                           child: Text(
-                            "Receipt",
+                            "Tumis bumbu halus, masukkan bumbu pelengkap. Tuang air secukupnya, masukkan cumi. Tunggu hingga empuk. Masukkan bahan lainnya, beri garam, kaldu, dan lada bubuk. Cuci bersih daging ayam dan lumuri dengan jeruk nipis diamkan kurang lebih 10 menit Tumis bumbu halus sampai wangi, masukkan daun salam, daun jeruk, dan sereh, aduk sampai bumbu matang, masukkan ayam, aduk rata, masak sampai berubah warna, tambahkan garam dan kaldu Masukkan santan encer dan air, masak dengan api sedang sampai daging ayam empuk Setelah kuah menyusut dan daging ayam empuk, masukkan santan kental, masak sambil terus diaduk sampai santan mendidih dan bumbu meresap.",
                             style: TextStyle(
                                 fontSize: 10,
                                 fontFamily: "student",
