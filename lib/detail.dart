@@ -1,9 +1,19 @@
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
 import 'addRecipe.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
 class DetilRec extends StatelessWidget {
-  const DetilRec({super.key});
+  final Map recipe;
+
+  DetilRec({required this.recipe});
+  // _launchURL(String url) async {
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -29,96 +39,194 @@ class DetilRec extends StatelessWidget {
                 iconSize: 40,
               )
             ]),
-        body: ListView(
-          children: [
-            Container(
-              color: Colors.amber[50],
-              child: Column(
-                children: [
-                  Padding(padding: EdgeInsets.only(top: 20)),
+        body: Container(
+          padding: EdgeInsets.only(left: 20),
+          child: Column(
+            children: [
+              Container(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(padding: EdgeInsets.only(left: 30)),
+                  Padding(padding: EdgeInsets.only(top: 10)),
                   Container(
-                    width: 300,
-                    color: Colors.brown,
                     child: Column(
                       children: [
-                        Padding(padding: EdgeInsets.only(top: 5)),
-                        Image.asset(
-                          "image/makanan.jpg",
-                          width: 290,
-                        ),
-                        Padding(padding: EdgeInsets.only(top: 5)),
-                      ],
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 20)),
-                  Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.only(top: 10),
-                    width: 300,
-                    height: 200,
-                    color: Colors.brown,
-                    child: Column(
-                      children: [
-                        Text(
-                          "Mie ayam",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "student",
-                              color: Colors.amber[100]),
-                        ),
+                        //card
                         Container(
-                          padding: EdgeInsets.all(20),
-                          height: 140,
-                          alignment: Alignment.bottomCenter,
-                          child: Text(
-                            "Tumis bumbu halus, masukkan bumbu pelengkap. Tuang air secukupnya, masukkan cumi. Tunggu hingga empuk. Masukkan bahan lainnya, beri garam, kaldu, dan lada bubuk. Cuci bersih daging ayam dan lumuri dengan jeruk nipis diamkan kurang lebih 10 menit Tumis bumbu halus sampai wangi, masukkan daun salam, daun jeruk, dan sereh, aduk sampai bumbu matang, masukkan ayam, aduk rata, masak sampai berubah warna, tambahkan garam dan kaldu Masukkan santan encer dan air, masak dengan api sedang sampai daging ayam empuk Setelah kuah menyusut dan daging ayam empuk, masukkan santan kental, masak sambil terus diaduk sampai santan mendidih dan bumbu meresap.",
-                            style: TextStyle(
-                                fontSize: 10,
-                                fontFamily: "student",
-                                color: Colors.amber[100]),
+                          width: 350,
+                          height: 630,
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black.withOpacity(0.7),
+                                    blurRadius: 6,
+                                    offset: Offset(1, 1))
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.all(5),
+                                  width: 300,
+                                  height: 15,
+                                  decoration: BoxDecoration(
+                                      color: Colors.deepOrange,
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(16))),
+                                ),
+                                Container(
+                                  width: 300,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.brown)),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        height: 30,
+                                        width: 10,
+                                        decoration: BoxDecoration(
+                                            color: Colors.deepOrange),
+                                      ),
+                                      Text(
+                                        recipe['judul'],
+                                        style: TextStyle(
+                                            color: Colors.brown,
+                                            fontSize: 20,
+                                            fontFamily: "Student"),
+                                      ),
+                                      Container(
+                                        height: 30,
+                                        width: 10,
+                                        decoration: BoxDecoration(
+                                            color: Colors.deepOrange),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.all(5),
+                                  width: 300,
+                                  height: 15,
+                                  decoration: BoxDecoration(
+                                      color: Colors.deepOrange,
+                                      borderRadius: BorderRadius.vertical(
+                                          bottom: Radius.circular(16))),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(padding: EdgeInsets.only(top: 5)),
+                                    Container(
+                                      height: 200,
+                                      width: 290,
+                                      decoration: BoxDecoration(
+                                          color: Colors.deepOrange,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                              padding:
+                                                  EdgeInsets.only(top: 10)),
+                                          Row(
+                                            children: [
+                                              Padding(
+                                                  padding:
+                                                      EdgeInsets.only(left: 9)),
+                                              Image.network(
+                                                recipe['urlimage'],
+                                                height: 180,
+                                                width: 270,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  margin: EdgeInsets.all(5),
+                                  width: 280,
+                                  child: Column(children: [
+                                    Text(
+                                      recipe['resep'],
+                                      style: TextStyle(
+                                          color: Colors.brown, fontSize: 10),
+                                    )
+                                  ]),
+                                  decoration: BoxDecoration(
+                                      color: Colors.brown[100],
+                                      borderRadius: BorderRadius.vertical(
+                                          bottom: Radius.circular(5),
+                                          top: Radius.circular(5))),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  margin: EdgeInsets.all(5),
+                                  width: 280,
+                                  child: Column(children: [
+                                    Text(
+                                      recipe['keterangan'],
+                                      style: TextStyle(
+                                          color: Colors.brown, fontSize: 10),
+                                    )
+                                  ]),
+                                  decoration: BoxDecoration(
+                                      color: Colors.brown[100],
+                                      borderRadius: BorderRadius.vertical(
+                                          bottom: Radius.circular(5),
+                                          top: Radius.circular(5))),
+                                ),
+
+                                //bawah
+                                GestureDetector(
+                                  onTap: () {
+                                    //_launchURL(recipe['urlimage']);
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.all(5),
+                                    width: 280,
+                                    height: 35,
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                            padding: EdgeInsets.only(top: 5)),
+                                        Text(
+                                          'Tutorial',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontFamily: "Student"),
+                                        ),
+                                      ],
+                                    ),
+                                    decoration: BoxDecoration(
+                                        color: Colors.deepOrange,
+                                        borderRadius: BorderRadius.vertical(
+                                            bottom: Radius.circular(16))),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )
                       ],
                     ),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 20)),
-                  Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.only(top: 10),
-                    width: 300,
-                    height: 180,
-                    color: Colors.brown,
-                    child: Column(
-                      children: [
-                        Text(
-                          "How To Make It",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "student",
-                              color: Colors.amber[100]),
-                        ),
-                        Container(
-                            alignment: Alignment.center,
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Step",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontFamily: "student",
-                                      color: Colors.amber[100]),
-                                ),
-                              ],
-                            )),
-                        ElevatedButton(onPressed: () {}, child: Text("Link"))
-                      ],
-                    ),
                   )
                 ],
-              ),
-              padding: EdgeInsets.only(bottom: 50),
-            )
-          ],
+              )),
+            ],
+          ),
         ));
   }
 }

@@ -1,13 +1,15 @@
 import 'package:dailycook/login.dart';
 import 'package:flutter/material.dart';
-import 'list.dart';
 import 'addRecipe.dart';
+import 'package:dailycook/services/globals.dart';
 
 class ProfileAcc extends StatelessWidget {
   const ProfileAcc({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final String nama;
+    final String resep;
     return Scaffold(
       appBar: AppBar(
           title: Text("DailyCook"),
@@ -58,13 +60,6 @@ class ProfileAcc extends StatelessWidget {
                     SizedBox(
                       height: 10.0,
                     ),
-                    Text(
-                      'Recipe maker',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.0,
-                      ),
-                    )
                   ]),
                 ),
               ),
@@ -106,7 +101,7 @@ class ProfileAcc extends StatelessWidget {
                                               ),
                                             ),
                                             Text(
-                                              "Tokopintar@gmail.com",
+                                              "Dailycook@gmail.com",
                                               style: TextStyle(
                                                 fontSize: 12.0,
                                                 color: Colors.grey[400],

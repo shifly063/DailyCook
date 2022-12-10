@@ -1,117 +1,236 @@
+import 'detail.dart';
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:dailycook/home.dart';
 import 'addRecipe.dart';
+import 'package:dailycook/services/globals.dart';
 
 class Listdata extends StatelessWidget {
-  const Listdata({super.key});
+  const Listdata({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final String judul;
+    final String resep;
+    final String keterangan;
+    final String urlimage;
+    final String url;
     return Scaffold(
-        appBar: AppBar(
-            title: Text("DailyCook"),
-            titleTextStyle: TextStyle(fontFamily: "caviarbold"),
-            actions: <Widget>[
-              IconButton(
-                icon: new Icon(Icons.playlist_add_rounded),
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddRecipe()));
-                },
-                iconSize: 40,
-              ),
-              IconButton(
-                icon: Icon(Icons.account_circle_rounded),
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => ProfileAcc()));
-                },
-                iconSize: 40,
-              )
-            ]),
-        body: ListView(
-          children: [
+      appBar: AppBar(
+          title: Text("DailyCook"),
+          titleTextStyle: TextStyle(fontFamily: "caviarbold"),
+          actions: <Widget>[
+            IconButton(
+              icon: new Icon(Icons.playlist_add_rounded),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => AddRecipe()));
+              },
+              iconSize: 40,
+            ),
+            IconButton(
+              icon: new Icon(Icons.account_circle_rounded),
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ProfileAcc()));
+              },
+              iconSize: 40,
+            )
+          ]),
+      body: FutureBuilder(
+        future: getRecipe(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
             Container(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(padding: EdgeInsets.only(left: 30)),
-                Container(
-                  padding: EdgeInsets.only(left: 30, top: 20),
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 300,
-                        height: 50,
-                        child: TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Search',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30)),
-                          ),
-                        ),
+              padding: EdgeInsets.only(left: 30, top: 20),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 300,
+                    height: 50,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Search',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30)),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          null;
-                        },
-                        icon: Icon(
-                          Icons.search,
-                          size: 30,
-                          color: Colors.brown[700],
-                          shadows: [
-                            BoxShadow(
-                              blurRadius: 10.0,
-                              color: Colors.brown,
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                Padding(padding: EdgeInsets.only(top: 20)),
-                Container(
-                  width: 350,
-                  height: 130,
-                  color: Colors.deepOrange,
-                  child: Row(
-                    children: <Widget>[
-                      Padding(padding: EdgeInsets.only(left: 10)),
-                      Image.asset(
-                        "image/makanan.jpg",
-                        width: 150,
-                      ),
-                      Padding(padding: EdgeInsets.only(left: 10)),
-                      Container(
-                        width: 170,
-                        height: 100,
-                        color: Colors.amber[100],
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(padding: EdgeInsets.all(5)),
-                            Text(
-                              "Nama Masakan",
-                              style: TextStyle(
-                                  fontFamily: "student", fontSize: 20),
-                            ),
-                            Padding(padding: EdgeInsets.only(top: 5)),
-                            Text(
-                              "Resep",
-                              style: TextStyle(
-                                  fontFamily: "student", fontSize: 10),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                  IconButton(
+                    onPressed: () {
+                      null;
+                    },
+                    icon: Icon(
+                      Icons.search,
+                      size: 30,
+                      color: Colors.brown[700],
+                      shadows: [
+                        BoxShadow(
+                          blurRadius: 10.0,
+                          color: Colors.brown,
+                        )
+                      ],
+                    ),
                   ),
-                )
-              ],
-            )),
-          ],
-        ));
+                ],
+              ),
+            );
+            return ListView.builder(
+                itemCount: snapshot.data['data'].length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DetilRec(
+                                recipe: snapshot.data['data'][index],
+                              )));
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                              child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Padding(padding: EdgeInsets.only(left: 30)),
+                              Padding(padding: EdgeInsets.only(top: 20)),
+                              Container(
+                                padding: EdgeInsets.only(top: 10),
+                                child: Column(
+                                  children: [
+                                    //card
+                                    Container(
+                                      width: 300,
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.9),
+                                                blurRadius: 6,
+                                                offset: Offset(1, 1))
+                                          ],
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(16)),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                  padding:
+                                                      EdgeInsets.only(top: 10)),
+                                              Container(
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                top: 10)),
+                                                    Image.network(
+                                                      snapshot.data['data']
+                                                          [index]['urlimage'],
+                                                      height: 100,
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          //bawah
+                                          Column(
+                                            children: [
+                                              //button + -
+                                              Container(
+                                                width: 280,
+                                                height: 30,
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                        color: Colors.brown)),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Container(
+                                                      height: 30,
+                                                      width: 30,
+                                                      decoration: BoxDecoration(
+                                                          color: Colors
+                                                              .deepOrange),
+                                                    ),
+                                                    Text(
+                                                      snapshot.data['data']
+                                                          [index]['judul'],
+                                                      style: TextStyle(
+                                                          color: Colors.brown,
+                                                          fontSize: 20,
+                                                          fontFamily:
+                                                              "Student"),
+                                                    ),
+                                                    Container(
+                                                      height: 30,
+                                                      width: 30,
+                                                      decoration: BoxDecoration(
+                                                          color: Colors
+                                                              .deepOrange),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                              //button addToCart
+                                              Container(
+                                                margin: EdgeInsets.all(5),
+                                                width: 280,
+                                                height: 35,
+                                                child: Column(children: [
+                                                  Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 5)),
+                                                  Text(
+                                                    'More',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 20,
+                                                        fontFamily: "Student"),
+                                                  )
+                                                ]),
+                                                decoration: BoxDecoration(
+                                                    color: Colors.deepOrange,
+                                                    borderRadius:
+                                                        BorderRadius.vertical(
+                                                            bottom:
+                                                                Radius.circular(
+                                                                    16))),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          )),
+                        ],
+                      ),
+                    ),
+                  );
+                });
+          } else {
+            return Text("error");
+          }
+        },
+      ),
+    );
   }
 }
+//shiflyinner@gmail.com
