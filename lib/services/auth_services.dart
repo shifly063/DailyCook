@@ -38,14 +38,10 @@ class AuthServices {
     return response;
   }
 
-  static Future<http.Response> resep(String judul, String ress, String ket) async {
-    Map data = {
-      "judul": judul,
-      "resep": ress,
-      "keterangan": ket
-    };
+  static Future<http.Response> resep(String judul) async {
+    Map data = {"judul": judul};
     var body = json.encode(data);
-    var url = Uri.parse(baseURL + 'auth/resep');
+    var url = Uri.parse(baseURL + 'receipe/search');
     http.Response response = await http.post(
       url,
       headers: headers,

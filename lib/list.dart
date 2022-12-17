@@ -1,8 +1,13 @@
+import 'dart:convert';
+
 import 'detail.dart';
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
 import 'addRecipe.dart';
+import 'package:http/http.dart';
 import 'package:dailycook/services/globals.dart';
+import 'package:http/http.dart' as http;
+import 'package:dailycook/Services/auth_services.dart';
 
 class Listdata extends StatelessWidget {
   const Listdata({
@@ -11,16 +16,23 @@ class Listdata extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String judul;
-    final String resep;
-    final String keterangan;
-    final String urlimage;
-    final String url;
     return Scaffold(
       appBar: AppBar(
           title: Text("DailyCook"),
           titleTextStyle: TextStyle(fontFamily: "caviarbold"),
           actions: <Widget>[
+            // TextField(
+            //   decoration: InputDecoration(
+            //       labelText: 'Email',
+            //       border: OutlineInputBorder(
+            //         borderRadius: BorderRadius.circular(30),
+            //       )),
+            //   onChanged: (value) {
+            //     judul = value;
+            //   },
+            // ),
+            // IconButton(
+            //     onPressed: () => searchPressed(), icon: Icon(Icons.search)),
             IconButton(
               icon: new Icon(Icons.playlist_add_rounded),
               onPressed: () {
@@ -32,8 +44,8 @@ class Listdata extends StatelessWidget {
             IconButton(
               icon: new Icon(Icons.account_circle_rounded),
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ProfileAcc()));
+                // Navigator.of(context).push(
+                //     MaterialPageRoute(builder: (context) => ProfileAcc()));
               },
               iconSize: 40,
             )
@@ -42,40 +54,6 @@ class Listdata extends StatelessWidget {
         future: getRecipe(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            Container(
-              padding: EdgeInsets.only(left: 30, top: 20),
-              child: Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 300,
-                    height: 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Search',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30)),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      null;
-                    },
-                    icon: Icon(
-                      Icons.search,
-                      size: 30,
-                      color: Colors.brown[700],
-                      shadows: [
-                        BoxShadow(
-                          blurRadius: 10.0,
-                          color: Colors.brown,
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            );
             return ListView.builder(
                 itemCount: snapshot.data['data'].length,
                 itemBuilder: (context, index) {
@@ -147,7 +125,6 @@ class Listdata extends StatelessWidget {
                                           //bawah
                                           Column(
                                             children: [
-                                              //button + -
                                               Container(
                                                 width: 280,
                                                 height: 30,
@@ -185,7 +162,7 @@ class Listdata extends StatelessWidget {
                                                   ],
                                                 ),
                                               ),
-                                              //button addToCart
+                                              //button
                                               Container(
                                                 margin: EdgeInsets.all(5),
                                                 width: 280,
@@ -233,4 +210,7 @@ class Listdata extends StatelessWidget {
     );
   }
 }
-//shiflyinner@gmail.com
+
+int lengthlist(int big) {
+  return big;
+}

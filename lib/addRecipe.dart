@@ -35,8 +35,8 @@ class AddRecipe extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.account_circle_rounded),
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ProfileAcc()));
+                // Navigator.of(context).push(
+                //     MaterialPageRoute(builder: (context) => ProfileAcc()));
               },
               iconSize: 40,
             )

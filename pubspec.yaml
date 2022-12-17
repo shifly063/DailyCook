@@ -66,6 +66,9 @@ flutter:
     - image/beranda.png
     - image/makanan.jpg
     - image/bgAdd.png
+    - image/profil.jpg
+    - image/user.png
+    - image/splash.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

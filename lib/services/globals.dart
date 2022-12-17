@@ -13,6 +13,7 @@ Future getRecipe() async {
 
 Future getUser() async {
   var response = await http.get(Uri.parse(urlUser));
+  print(json.decode(response.body));
   return json.decode(response.body);
 }
 
@@ -23,6 +24,6 @@ errorSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     backgroundColor: Colors.red,
     content: Text(text),
-    duration: const Duration(seconds: 1),
+    duration: const Duration(seconds: 2),
   ));
 }

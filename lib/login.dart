@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:dailycook/Services/auth_services.dart';
 import 'package:dailycook/Services/globals.dart';
+import 'profile.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -20,16 +21,29 @@ class LoginForm extends StatelessWidget {
         http.Response response = await AuthServices.login(_email, _password);
         Map responseMap = jsonDecode(response.body);
         if (response.statusCode == 200) {
+          print(responseMap);
+          print(responseMap['user']['id']);
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => const Homelist(),
+                builder: (BuildContext context) => ProfileAcc(
+                  email: responseMap['user']['email'],
+                  nama: responseMap['user']['name'],
+                ),
               ));
         } else {
-          errorSnackBar(context, responseMap.values.first);
+          // errorSnackBar(context, responseMap.values.first);
         }
       } else {
-        errorSnackBar(context, 'enter all required fields');
+        errorSnackBar(context, 'Masukan data dengan benar');
+      }
+    }
+
+    Future getEmail(_email) async {
+      http.Response response = await AuthServices.login(_email, _password);
+      Map responseMap = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        return responseMap.values.first;
       }
     }
 
@@ -95,6 +109,7 @@ class LoginForm extends StatelessWidget {
                       width: 300,
                       height: 50,
                       child: TextField(
+                        obscureText: true,
                         decoration: InputDecoration(
                             labelText: 'Password',
                             border: OutlineInputBorder(
@@ -125,14 +140,14 @@ class LoginForm extends StatelessWidget {
                               child: Text("Sign Up")),
                           Text("or"),
                         ]),
-                    IconButton(
-                      icon: Icon(
-                        Icons.facebook,
-                        color: Colors.blue,
-                        size: 30,
-                      ),
-                      onPressed: null,
-                    ),
+                    // IconButton(
+                    //   icon: Icon(
+                    //     Icons.facebook,
+                    //     color: Colors.blue,
+                    //     size: 30,
+                    //   ),
+                    //   onPressed: null,
+                    // ),
                   ],
                 )),
           ],
