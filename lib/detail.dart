@@ -1,19 +1,12 @@
+import 'package:dailycook/login.dart';
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
 import 'addRecipe.dart';
-//import 'package:url_launcher/url_launcher.dart';
 
 class DetilRec extends StatelessWidget {
   final Map recipe;
 
   DetilRec({required this.recipe});
-  // _launchURL(String url) async {
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +26,8 @@ class DetilRec extends StatelessWidget {
               IconButton(
                 icon: new Icon(Icons.account_circle_rounded),
                 onPressed: () {
-                  // Navigator.of(context).push(
-                  //     MaterialPageRoute(builder: (context) => ProfileAcc()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => LoginForm()));
                 },
                 iconSize: 40,
               )
@@ -187,8 +180,6 @@ class DetilRec extends StatelessWidget {
                                           bottom: Radius.circular(5),
                                           top: Radius.circular(5))),
                                 ),
-
-                                //bawah
                                 GestureDetector(
                                   onTap: () {
                                     //_launchURL(recipe['urlimage']);

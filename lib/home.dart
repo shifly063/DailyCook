@@ -15,12 +15,10 @@ class Homelist extends StatelessWidget {
       {super.key,
       required this.list1,
       required this.list2,
-      required this.list3,
-      required this.contoh});
+      required this.list3});
   final Map<String, dynamic> list1;
   final Map<String, dynamic> list2;
   final Map<String, dynamic> list3;
-  final String contoh;
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +30,12 @@ class Homelist extends StatelessWidget {
     String _url = '';
     bool search = false;
     String judul = '';
-    // final String resep;
-    // final String keterangan;
-    // final String urlimage;
-    // final String url;
 
     searchPressed() async {
       if (judul.isNotEmpty) {
         http.Response response = await AuthServices.resep(judul);
         Map responseMap = jsonDecode(response.body);
         if (response.statusCode == 200) {
-          // print("============================================================");
-          // print();
-          // print("============================================================");
-
           _judul = responseMap['data']['judul'];
           _resep = responseMap['data']['resep'];
           _keterangan = responseMap['data']['keterangan'];
@@ -67,44 +57,6 @@ class Homelist extends StatelessWidget {
       } else {
         errorSnackBar(context, 'enter all required fields');
       }
-    }
-
-    String tittle = '';
-
-    // searchPressed() async {
-    //   if (_email.isNotEmpty && _password.isNotEmpty) {
-    //     http.Response response = await AuthServices.resep(tittle);
-    //     Map responseMap = jsonDecode(response.body);
-    //     if (response.statusCode == 200) {
-    //       Navigator.push(
-    //           context,
-    //           MaterialPageRoute(
-    //             builder: (BuildContext context) => const Homelist(),
-    //           ));
-    //     } else {
-    //       errorSnackBar(context, responseMap.values.first);
-    //     }
-    //   } else {
-    //     errorSnackBar(context, 'enter all required fields');
-    //   }
-    // }
-
-    ReceipeTrue() async {
-      // if (_email.isNotEmpty && _password.isNotEmpty) {
-      // http.Response response = await AuthServices.login(_email, _password);
-      // Map responseMap = jsonDecode(response.body);
-      // if (response.statusCode == 200) {
-      //   Navigator.push(
-      //       context,
-      //       MaterialPageRoute(
-      //         builder: (BuildContext context) => const Homelist(),
-      //       ));
-      // } else {
-      //   errorSnackBar(context, responseMap.values.first);
-      // }
-      // } else {
-      //   errorSnackBar(context, 'not connected');
-      // }
     }
 
     return Scaffold(
@@ -172,11 +124,6 @@ class Homelist extends StatelessWidget {
                           ),
                           IconButton(
                             onPressed: () {
-                              //AuthServices.resep(judul);
-
-                              // showSearch(
-                              //     context: context, delegate: SearchUser()
-                              //     );
                               if (judul == '') {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => Listdata()));
@@ -308,10 +255,6 @@ class BoxCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(padding: EdgeInsets.only(top: 10)),
-                            // Image.asset(
-                            //   "image/makanan.jpg",
-                            //   width: 90,
-                            // ),
                             Image.network(imgurl),
                             Padding(padding: EdgeInsets.only(top: 5)),
                           ],

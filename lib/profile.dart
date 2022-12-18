@@ -10,8 +10,6 @@ class ProfileAcc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final String nama;
-    // final String email;
     return Scaffold(
       appBar: AppBar(
           title: Text("DailyCook"),

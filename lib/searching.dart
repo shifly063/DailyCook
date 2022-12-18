@@ -1,7 +1,6 @@
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
 import 'addRecipe.dart';
-//import 'package:url_launcher/url_launcher.dart';
 
 class Searching extends StatelessWidget {
   final String judul;
@@ -16,13 +15,6 @@ class Searching extends StatelessWidget {
       required this.resep,
       required this.url,
       required this.imageurl});
-  // _launchURL(String url) async {
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +28,6 @@ class Searching extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => AddRecipe()));
-                },
-                iconSize: 40,
-              ),
-              IconButton(
-                icon: new Icon(Icons.account_circle_rounded),
-                onPressed: () {
-                  // Navigator.of(context).push(
-                  //     MaterialPageRoute(builder: (context) => ProfileAcc()));
                 },
                 iconSize: 40,
               )
@@ -206,13 +190,6 @@ class Detilsearch extends StatelessWidget {
       required this.resep,
       required this.url,
       required this.imageurl});
-  // _launchURL(String url) async {
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -231,10 +208,7 @@ class Detilsearch extends StatelessWidget {
               ),
               IconButton(
                 icon: new Icon(Icons.account_circle_rounded),
-                onPressed: () {
-                  // Navigator.of(context).push(
-                  //     MaterialPageRoute(builder: (context) => ProfileAcc()));
-                },
+                onPressed: () {},
                 iconSize: 40,
               )
             ]),
@@ -251,7 +225,6 @@ class Detilsearch extends StatelessWidget {
                   Container(
                     child: Column(
                       children: [
-                        //card
                         Container(
                           width: 350,
                           height: 630,
@@ -386,12 +359,8 @@ class Detilsearch extends StatelessWidget {
                                           bottom: Radius.circular(5),
                                           top: Radius.circular(5))),
                                 ),
-
-                                //bawah
                                 GestureDetector(
-                                  onTap: () {
-                                    //_launchURL(recipe['urlimage']);
-                                  },
+                                  onTap: () {},
                                   child: Container(
                                     margin: EdgeInsets.all(5),
                                     width: 280,

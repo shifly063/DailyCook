@@ -53,12 +53,10 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       await Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (_) {
         homelogIn();
-        // print(responseMap1 as Map<String, dynamic>);
         return Homelist(
           list1: responseMap1,
           list2: responseMap2,
           list3: responseMap3,
-          contoh: "masuk",
         );
       }));
     });

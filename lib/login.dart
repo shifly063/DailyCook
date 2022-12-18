@@ -21,8 +21,6 @@ class LoginForm extends StatelessWidget {
         http.Response response = await AuthServices.login(_email, _password);
         Map responseMap = jsonDecode(response.body);
         if (response.statusCode == 200) {
-          print(responseMap);
-          print(responseMap['user']['id']);
           Navigator.push(
               context,
               MaterialPageRoute(
@@ -32,30 +30,18 @@ class LoginForm extends StatelessWidget {
                 ),
               ));
         } else {
-          // errorSnackBar(context, responseMap.values.first);
+          errorSnackBar(context, responseMap.values.first);
         }
       } else {
         errorSnackBar(context, 'Masukan data dengan benar');
       }
     }
 
-    Future getEmail(_email) async {
-      http.Response response = await AuthServices.login(_email, _password);
-      Map responseMap = jsonDecode(response.body);
-      if (response.statusCode == 200) {
-        return responseMap.values.first;
-      }
-    }
-
-    bool hide = true;
-
-    void passwordvisible() {}
-
     return Scaffold(
         appBar: AppBar(
-            title: Text("DailyCook"),
-            titleTextStyle: TextStyle(fontFamily: "caviarbold"),
-            actions: <Widget>[]),
+          title: Text("DailyCook"),
+          titleTextStyle: TextStyle(fontFamily: "caviarbold"),
+        ),
         body: ListView(
           children: [
             Container(
@@ -140,14 +126,6 @@ class LoginForm extends StatelessWidget {
                               child: Text("Sign Up")),
                           Text("or"),
                         ]),
-                    // IconButton(
-                    //   icon: Icon(
-                    //     Icons.facebook,
-                    //     color: Colors.blue,
-                    //     size: 30,
-                    //   ),
-                    //   onPressed: null,
-                    // ),
                   ],
                 )),
           ],

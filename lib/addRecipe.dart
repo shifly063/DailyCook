@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:dailycook/list.dart';
+import 'package:dailycook/login.dart';
 import 'package:dailycook/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +8,6 @@ import 'package:http/http.dart' as http;
 final String url = 'http://10.0.2.2:8000/api/receipe';
 
 class AddRecipe extends StatelessWidget {
-  // const AddRecipe({super.key});
   final keyform = GlobalKey<FormState>();
   TextEditingController judulcontrol = TextEditingController();
   TextEditingController resepcontrol = TextEditingController();
@@ -35,8 +35,8 @@ class AddRecipe extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.account_circle_rounded),
               onPressed: () {
-                // Navigator.of(context).push(
-                //     MaterialPageRoute(builder: (context) => ProfileAcc()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => LoginForm()));
               },
               iconSize: 40,
             )

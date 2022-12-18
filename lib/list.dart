@@ -21,18 +21,6 @@ class Listdata extends StatelessWidget {
           title: Text("DailyCook"),
           titleTextStyle: TextStyle(fontFamily: "caviarbold"),
           actions: <Widget>[
-            // TextField(
-            //   decoration: InputDecoration(
-            //       labelText: 'Email',
-            //       border: OutlineInputBorder(
-            //         borderRadius: BorderRadius.circular(30),
-            //       )),
-            //   onChanged: (value) {
-            //     judul = value;
-            //   },
-            // ),
-            // IconButton(
-            //     onPressed: () => searchPressed(), icon: Icon(Icons.search)),
             IconButton(
               icon: new Icon(Icons.playlist_add_rounded),
               onPressed: () {
@@ -43,10 +31,7 @@ class Listdata extends StatelessWidget {
             ),
             IconButton(
               icon: new Icon(Icons.account_circle_rounded),
-              onPressed: () {
-                // Navigator.of(context).push(
-                //     MaterialPageRoute(builder: (context) => ProfileAcc()));
-              },
+              onPressed: () {},
               iconSize: 40,
             )
           ]),
