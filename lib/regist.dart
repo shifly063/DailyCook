@@ -48,14 +48,20 @@ class RegistForm extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       height: 50,
                       color: Colors.deepOrange[400],
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          fontFamily: "caviarbold",
-                          fontSize: 25,
-                          color: Colors.yellow[100],
-                        ),
-                        textAlign: TextAlign.right,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Sign Up",
+                            style: TextStyle(
+                              fontFamily: "caviarbold",
+                              fontSize: 25,
+                              color: Colors.yellow[100],
+                            ),
+                            textAlign: TextAlign.right,
+                          ),
+                          Padding(padding: EdgeInsets.only(left: 30))
+                        ],
                       ),
                     ),
                     Padding(padding: EdgeInsets.only(top: 20)),

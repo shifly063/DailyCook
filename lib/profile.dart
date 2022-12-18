@@ -66,111 +66,84 @@ class ProfileAcc extends StatelessWidget {
                 flex: 6,
                 child: Container(
                   color: Colors.grey[200],
-                  child: Center(
-                      child: Card(
-                          margin: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
-                          child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.brown[200]),
-                              width: 310.0,
-                              height: 250.0,
-                              child: Padding(
-                                padding: EdgeInsets.all(10.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                  child: Column(
+                    children: [
+                      Center(
+                          child: Card(
+                              margin: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      color: Colors.brown[200]),
+                                  width: 310.0,
+                                  height: 100.0,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        Icon(
-                                          Icons.email,
-                                          color: Colors.red,
-                                          size: 50,
-                                        ),
-                                        SizedBox(
-                                          width: 20.0,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              "Email",
-                                              style: TextStyle(
-                                                fontSize: 22.0,
-                                              ),
+                                            Icon(
+                                              Icons.email,
+                                              color: Colors.red,
+                                              size: 50,
                                             ),
-                                            Text(
-                                              email,
-                                              style: TextStyle(
-                                                fontSize: 20.0,
-                                                color: Colors.brown,
-                                              ),
+                                            SizedBox(
+                                              width: 20.0,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "Email",
+                                                  style: TextStyle(
+                                                    fontSize: 22.0,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  email,
+                                                  style: TextStyle(
+                                                    fontSize: 20.0,
+                                                    color: Colors.brown,
+                                                  ),
+                                                )
+                                              ],
                                             )
                                           ],
-                                        )
+                                        ),
                                       ],
                                     ),
-                                    SizedBox(
-                                      height: 20.0,
-                                    ),
-                                    SizedBox(
-                                      height: 20.0,
-                                    ),
-                                    // Row(
-                                    //   mainAxisAlignment:
-                                    //       MainAxisAlignment.start,
-                                    //   children: [
-                                    //     Icon(
-                                    //       Icons.settings,
-                                    //       color: Colors.red,
-                                    //       size: 35,
-                                    //     ),
-                                    //     SizedBox(
-                                    //       width: 20.0,
-                                    //     ),
-                                    //     Column(
-                                    //       crossAxisAlignment:
-                                    //           CrossAxisAlignment.start,
-                                    //       children: [
-                                    //         Text(
-                                    //           "Change Password",
-                                    //           style: TextStyle(
-                                    //             fontSize: 15.0,
-                                    //           ),
-                                    //         ),
-                                    //         Text(
-                                    //           "********",
-                                    //           style: TextStyle(
-                                    //             fontSize: 12.0,
-                                    //             color: Colors.grey[400],
-                                    //           ),
-                                    //         )
-                                    //       ],
-                                    //     )
-                                    //   ],
-                                    // ),
-                                    // Padding(padding: EdgeInsets.only(top: 20)),
-                                    // ElevatedButton(
-                                    //   child: Text('Logout'),
-                                    //   style: ElevatedButton.styleFrom(
-                                    //       backgroundColor: Colors.red),
-                                    //   onPressed: () {
-                                    //     Navigator.of(context)
-                                    //         .push(MaterialPageRoute(
-                                    //             builder: (context) => EditPass(
-                                    //                   email: email,
-                                    //                   id: id,
-                                    //                   nama: nama,
-                                    //                   pass: pass,
-                                    //                 )));
-                                    //   },
-                                    // ),
-                                  ],
-                                ),
-                              )))),
+                                  )))),
+                      Container(
+                        child: Card(
+                            margin: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    color: Colors.brown[200]),
+                                width: 310.0,
+                                height: 150.0,
+                                child: Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        'image/splash.png',
+                                        height: 130,
+                                      )
+                                    ],
+                                  ),
+                                ))),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -180,43 +153,3 @@ class ProfileAcc extends StatelessWidget {
     );
   }
 }
-
-//String length;
-
-// class Lengthlist {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: FutureBuilder(
-//         future: getRecipe(),
-//         builder: (context, snapshot) {
-//           if (snapshot.hasData) {
-//             length = Text(snapshot.data['data'].length) as String;
-//             return Text(snapshot.data['data'].length);
-//           } else {
-//             return Text("error");
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }
-
-// class userlist {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: FutureBuilder(
-//         future: getUser(),
-//         builder: (context, snapshot) {
-//           if (snapshot.hasData) {
-//             length = Text(snapshot.data['data'].length) as String;
-//             return Text(snapshot.data['data'].length);
-//           } else {
-//             return Text("error");
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }

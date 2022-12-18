@@ -198,15 +198,29 @@ class DetilRec extends StatelessWidget {
                                     width: 280,
                                     height: 35,
                                     child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
-                                        Padding(
-                                            padding: EdgeInsets.only(top: 5)),
-                                        Text(
-                                          'Tutorial',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontFamily: "Student"),
+                                        Row(
+                                          children: [
+                                            Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 10)),
+                                            Text(
+                                              'Tutorial : ',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 20,
+                                                  fontFamily: "Student"),
+                                            ),
+                                            Text(
+                                              recipe['url'],
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 10,
+                                                  fontFamily: "Student"),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),

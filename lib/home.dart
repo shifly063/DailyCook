@@ -61,7 +61,8 @@ class Homelist extends StatelessWidget {
                     imageurl: _imageurl,
                   )));
         } else {
-          Listdata();
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Listdata()));
         }
       } else {
         errorSnackBar(context, 'enter all required fields');
